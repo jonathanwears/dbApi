@@ -1,7 +1,7 @@
 # Database API using mongoose, mongodb.
 
 ## Project Description
-##### This is API for the flashcards project found here:[Timer](https://github.com/jonathanwears/flashcards "Timer repo")
+##### This is API for the flashcards project found here: [flashcards](https://github.com/jonathanwears/flashcards "Timer repo")
 ##### 
 ## Setup
 To run this project, install it locally using npm:
