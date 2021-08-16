@@ -30,4 +30,12 @@ controller.editEntry = async (req, res) => {
     }
 }
 
+controller.deleteEntry = async (req, res) => {
+    try{
+        const deleteEntry = await Word.deleteEntry(req);
+    }catch(err) {
+        console.log("error from controller.deleteEntry " + err)
+    }
+}
+
 export default controller;

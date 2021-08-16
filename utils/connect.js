@@ -6,6 +6,7 @@ async function connectToDb() {
     await mongoose.connect(`mongodb+srv://${config.dbHost}${config.dbName}`, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      'useFindAndModify': false,
     });
   } catch (err) {
     console.error(`error from connect.js: ${err}`);

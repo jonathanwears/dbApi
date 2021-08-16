@@ -9,10 +9,12 @@ const router = express.Router();
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
-app.use(cors());
-
+app.use(cors({
+  'headers' : {
+    'Access-Control-Allow-Origin': 'http://localhost:3000',
+  }
+}));
 const port = 8000;
-
 connectToDb();
 
 const a = Word.getAll();
@@ -26,10 +28,15 @@ app.post('/create', (req, res) => {
   res.end();
 });
 
-app.put('/editEntry', (req, res) => {
+app.patch('/editEntry', (req, res) => {
   controller.editEntry(req);
   res.end();
 }); 
+
+app.delete('/deleteEntry', (req, res) => {
+  controller.deleteEntry(req);
+  res.end();
+});
 
 app.listen(port, () => {
   console.log('server started - ', port);
