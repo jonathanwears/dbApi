@@ -48,7 +48,7 @@ Project is: _completed_
 
 ## Room for Improvement
 
-- To fix CORS issue CORS is open
+- CORS has been opened to allow API to work
 
 ## Contact
 
