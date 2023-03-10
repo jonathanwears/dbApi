@@ -3,17 +3,17 @@ import connectToDb from './connect.js';
 import Word from './models/Word.js';
 import controller from './controller.js';
 import cors from 'cors';
+import bcrypt from 'bcrypt';
+const saltRounds = 10;
 
 const app = express();
 const router = express.Router();
 
 app.use(express.json());
-app.use(express.urlencoded({extended:true}))
-app.use(cors({
-  'headers' : {
-    'Access-Control-Allow-Origin': 'http://localhost:3000',
-  }
-}));
+app.use(express.urlencoded({ extended: true }))
+app.use(cors())
+app.options('*', cors())
+
 const port = 8000;
 connectToDb();
 
@@ -31,10 +31,15 @@ app.post('/create', (req, res) => {
 app.patch('/editEntry', (req, res) => {
   controller.editEntry(req);
   res.end();
-}); 
+});
 
 app.delete('/deleteEntry', (req, res) => {
   controller.deleteEntry(req);
+  res.end();
+});
+
+app.post('/register', (req, res) => {
+  userController.registerUser(req);
   res.end();
 });
 
